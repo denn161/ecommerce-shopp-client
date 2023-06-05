@@ -1,0 +1,50 @@
+.dashboard {
+	padding-top: 72px;
+	padding-bottom: 130px;
+
+	&__fresh {
+		margin-bottom: 80px;
+	}
+
+	&__best {
+		margin-bottom: 80px;
+	}
+
+	&__title {
+		font-family: 'Raleway';
+		margin-top: 48px;
+		margin-bottom: 48px;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 55px;
+		line-height: 112%;
+		letter-spacing: 0.022em;
+		@media(max-width:560px){
+			 display: none;
+		}
+	}
+	&__subtitle {
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 36px;
+		line-height: 132.5%;
+		color: #2d2d2d;
+	}
+
+	&__info {
+		&_text {
+			font-family: 'Roboto';
+			max-width:1076px;
+			width: 100%;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 150.19%;
+			color: #4e4c4c;
+			&.dark_mode{
+				color: #f2f2f2;
+			}
+		}
+	}
+}

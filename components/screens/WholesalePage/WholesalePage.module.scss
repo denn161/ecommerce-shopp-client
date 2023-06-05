@@ -1,0 +1,66 @@
+.wholesale {
+	padding: 60px 0 80px;
+	&__title {
+		font-family: 'Raleway';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 36px;
+		line-height: 132.5%;
+		color: #2d2d2d;
+		margin-bottom: 48px;
+		@media (max-width: 900px) {
+			font-size: 22px;
+		}
+
+		&.dark{
+			color: #f2f2f2;
+		}
+	}
+	&__info {
+		background: #ffffff;
+		box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+		height: 118px;
+		padding: 24px 24px 24px 24px;
+		@media(max-width:1300px){
+			min-height: 118px;
+			height: auto;
+			margin-bottom: 20px;
+		}
+		&.dark{
+			background-color: #4e4c4c;
+			>p{
+				color: #f2f2f2;
+			}
+		}
+
+		> p {
+			margin-bottom: 16px;
+			font-family: 'Roboto';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 150.19%;
+			color: #4e4c4c;
+		}
+	}
+
+	&__inner {
+		display: grid;
+		grid-template-columns: 1fr 37%;
+		justify-content: baseline;
+		gap: 109px;
+		@media (max-width: 1470px) {
+      grid-column-gap: 20px;
+		
+    }
+		@media (max-width: 1170px) {
+      grid-column-gap: 40px;
+		
+    }
+
+    @media (max-width: 900px) {
+      display: block;
+    }
+	}
+}

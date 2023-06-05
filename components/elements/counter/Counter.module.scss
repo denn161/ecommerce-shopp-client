@@ -1,0 +1,40 @@
+.counter {
+	display: flex;
+	gap: 15px;
+	padding: 7px 20px;
+	border-radius: 10px;
+	border: 1px solid #1c629e;
+	align-items: center;
+  &.dark{
+		border: 1px solid #f2f2f2;
+		 >span{
+			 color: #f2f2f2;
+		 }
+		 >button{
+			>svg{
+				>path{
+					stroke: #f2f2f2;
+				}
+			}
+		 }
+	}
+
+	> span {
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 150.19%; 
+		color: #4e4c4c;
+		
+	}
+
+	
+	> button {
+		background: transparent;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		
+	}
+}

@@ -1,0 +1,27 @@
+.acc__btn {
+  background-color: transparent;
+  border: none;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid rgba(205, 203, 203, 0.2) !important;
+}
+.acc__btn.dark__mode > span:first-child {
+  color: white;
+}
+.acc__btn.open > span {
+  transition: trnasform 0.4s ease;
+}
+.acc__btn.open > span:last-child {
+  transform: rotate(360deg);
+}
+
+.acc__arrow {
+  transform: rotate(180deg);
+}/*# sourceMappingURL=AccardionFilter.module.css.map */

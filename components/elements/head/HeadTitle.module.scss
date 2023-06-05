@@ -1,0 +1,22 @@
+.head__wrapper {
+	width: 100%;
+}
+
+.title {
+	
+	
+	@media(max-width:502px){
+		 font-size: 36px;
+	}
+	&.dark_mode{
+		 color:#f2f2f2;
+	}
+  
+ &.subtitle{
+	margin-bottom:48px;
+	@media(max-width:502px){
+		font-size: 26px;
+ }
+ }
+
+}

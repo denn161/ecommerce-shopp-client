@@ -1,0 +1,55 @@
+.btn {
+	border: none;
+	background: none;
+	outline: none;
+	cursor: pointer;
+	display:flex;
+	gap: 4px;
+	align-items: center;
+  &.dark_mode{
+		>svg{
+			fill: #f2f2f2;
+			display: block;
+		 
+		  
+		}
+		>span{
+			color: #f2f2f2;
+			display: block;
+		}
+	}
+
+	> span {
+		position: relative;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 16px;
+		line-height: 1.1;
+    letter-spacing: 0.002em;
+    text-decoration-line: underline;
+    color: #f2f2f2;
+    transition: color .4s ease-in-out;
+		@media (max-width: 950px) {
+      font-size: 22px;
+      color: #2d2d2d;
+		}
+     
+	
+	}
+	>svg{
+		fill: #f2f2f2;
+		width: 11px;
+		height: 11px;
+		transition: fill .4s ease-in-out;
+	}
+  
+	&:hover{
+		>svg{
+			fill: #FFC540;
+		}
+		>span{
+		color: #FFC540;
+		}
+	}
+
+}

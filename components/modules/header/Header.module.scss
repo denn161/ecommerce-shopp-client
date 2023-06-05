@@ -1,0 +1,384 @@
+$bgHeader: #2d2d2d;
+$bgHeaderDark: #f2f2f2;
+$goldColor: #ffc540;
+$whiteColor:#f2f2f2;
+$darkColor:#2d2d2d;
+.header {
+	width: 100%;
+
+	&__top {
+		width: 100%;
+		position: relative;
+		padding: 20px;
+
+		background-color: $bgHeader;
+		color: $whiteColor;
+		&_container {
+			min-height: 58px;
+			position: relative;
+			padding: 0 12px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			@media(max-width:896px){
+			   .profile{
+					margin-left: auto;
+				 }
+			}
+		}
+	}
+
+	&__nav {
+		@media (max-width: 950px) {
+			left: -100vw;
+			position: absolute;
+			top: -13px;
+			padding-top: 60px;
+			transition: left 0.4s ease-in-out;
+			background-color: $whiteColor;
+			padding-left: 0;
+			height: 100vh;
+			z-index: 11;
+			&.open {
+				left: 0;
+				top: 0;
+				transition: left 0.3s ease-in-out;
+			}
+			&.dark_mode {
+				background-color: $darkColor;
+			}
+		}
+		@media (max-width: 580px) {
+			top: -20px;
+		}
+
+		&_list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			align-items: center;
+
+			@media (max-width: 950px) {
+				flex-direction: column;
+				align-items: start;
+			}
+
+			
+		}
+
+		&_list_item {
+			padding: 2px 20px;
+			border: 1px solid transparent;
+      border-radius: 8px;
+			margin-right: 50px;		
+			transition: all .4s ease;
+
+			&:last-child {
+				margin-right: 0px;
+			}
+
+			&.active{
+				 border: 1px solid $goldColor;
+				 box-shadow: -4px 0 20px rgba(255, 255, 255, 0.7);
+				 
+				 >a{
+					color: $goldColor;
+				 }
+			}
+		}
+		&_link {
+			display: block;
+			width: fit-content;
+			font-weight: 500;
+			position: relative;
+			font-size: 16px;
+			padding: 5px 0;
+			color: $whiteColor;
+			transition: color 0.2s ease-in-out;
+			&.active {
+				color: $goldColor;
+			}
+			&.dark_mode {
+				color: $whiteColor;
+			}
+
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 0%;
+				height: 2px;
+				background-color: $goldColor;
+				transition: width 0.4s ease;
+			}
+
+			&:hover {
+				color: $goldColor;
+				transition: color 0.4s ease-in-out;
+			}
+
+			&:hover::after {
+				width: 100%;
+			}
+
+			@media (max-width: 950px) {
+				font-size: 22px;
+				color: $darkColor;
+
+				&.dark_mode {
+					color: $whiteColor;
+				}
+			}
+		}
+	}
+}
+.profile {
+	position: relative;
+	color: black;
+	width: 30px;
+	height: 30px;
+
+	&.dark_mode {
+		.profile__menu {
+			background: $whiteColor;
+		}
+		.profile__menu {
+			background-color: $whiteColor;
+		}
+		.profile__user {
+			border-bottom: 1px solid $darkColor;
+			color: $darkColor;
+		}
+		.profile__logout {
+			> button {
+				> span:nth-child(1) {
+					color: $darkColor;
+				}
+				> span:nth-child(2) {
+					fill: $darkColor;
+				}
+			}
+		}
+	}
+
+	> button {
+		border: none;
+		background: none;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		outline: none;
+		cursor: pointer;
+		display: grid;
+		place-items: center;
+		> svg {
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			transition: background 0.4s ease;
+			&:hover {
+				background-color: $goldColor;
+			}
+		}
+	}
+
+	&__menu {
+		position: absolute;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 15px;
+		z-index: 10;
+		width: max-content;
+		padding: 20px;
+		top: calc(100% + 10px);
+		right: calc(100% - 20px);
+		border: 1px solid black;
+		background-color: $darkColor;
+		border-radius: 10px;
+	}
+
+	&__user {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		padding-bottom: 10px;
+		border-bottom: 1px solid $whiteColor;
+		color: $whiteColor;
+	}
+	&__logout {
+		> button {
+			display: flex;
+			border: none;
+			background-color: transparent;
+			outline: none;
+			cursor: pointer;
+			gap: 10px;
+			align-items: center;
+			&.dark_mode{
+				> span:nth-child(2) {
+					> svg {
+						fill: $darkColor;
+					  
+					}
+				}
+				 
+			}
+			&:hover {
+				> span:nth-child(2) {
+					> svg {
+						transform: translateX(10px);
+					}
+				}
+			}
+			> span:nth-child(1) {
+				color: $whiteColor;
+			}
+			> span:nth-child(2) {
+				> svg {
+					fill: $whiteColor;
+					width: 20px;
+					height: 20px;
+					transition: all 0.4s ease;
+				}
+			}
+		}
+	}
+}
+
+.header__bottom {
+	min-height: 72px;
+	background: #ccc;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+	&.dark_mode{
+		 background: #2d2d2d;
+		 box-shadow: 0px 2px 8px rgba(240, 230, 230, 0.895) ;
+	}
+
+	&_container {
+	  display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+		gap: 20px;
+		padding: 22px 15px 16px;
+		width: 100%;
+		
+	}
+
+	&_cards {
+	  grid-column: 11/13;
+	  justify-self: flex-end;
+	}
+
+	&_search{
+		grid-column: 4 / 11;
+    padding-left: 10px;
+    display: grid;	  
+		grid-template-columns: 92% 5%;	
+	
+
+		@media (max-width: 770px) {
+      grid-column: 5 / 11;
+    }
+
+    @media (max-width: 580px) {
+      grid-column: 1 / 10;
+      padding-left: 0;
+    }
+
+    @media (max-width: 370px) {
+      grid-column: 1 / 9;
+    }
+    
+		&_btn{
+			position: relative;
+      background-color: #f2f2f2;
+      outline: none;
+			border: none;
+			border: 1px solid #9e9e9e;
+			border-left: none;
+      border-radius: 4px;
+      height: 40px;
+      width: 42px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      cursor: pointer;
+			&.dark{
+				background-color: #2d2d2d !important;
+				>svg{
+					fill: #f2f2f2;
+				}
+			}
+		}		
+		&_inner{
+			position: relative;		
+			display: flex;	
+			align-items: center;
+			>div{
+				width: 100%;
+			}
+		
+		}
+
+		&_border{
+			display: none;
+			position: absolute;
+			bottom:0;
+			z-index: 101;
+			width: calc(100% - 10px);
+			left: 10px;
+			height: 1px;
+			background-color: #e1e1e1;
+			
+		}
+	}
+
+	&_logo {
+	  position: relative;
+    grid-column: 1 / 3;
+		display: flex;
+		align-items: center;
+
+		gap: 10px;
+		&.dark_mode{
+			 >span{
+				&:last-child{
+					color: $whiteColor;
+				}
+			 }
+		}
+		> span {
+			> img {
+				width: 50px;
+				max-width: 100%;
+				display: block;
+			}
+			&:last-child {
+				font-family: 'Raleway';
+				font-style: normal;
+				font-weight: 700;
+				color: $darkColor;
+				font-size: 18px;
+				line-height:1.1;
+				max-width: 138px;
+				width: 100%;
+			}
+		}
+		@media (max-width: 770px) {
+			grid-column: 1 / 5;
+		}
+	
+		@media (max-width: 580px) {
+		  display: none;
+		}
+	}
+
+	
+}
+

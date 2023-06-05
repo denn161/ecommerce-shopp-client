@@ -1,0 +1,57 @@
+.breadcrumbs{
+
+	&__list{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		margin-bottom: 25px;
+		padding-top: 15px;
+		display: flex;
+		align-items: center;
+	}
+
+	&__item{
+		&:not(:last-child){
+			 margin-right:13px;
+		}
+		&_icon{
+			&.dark{
+				>svg{
+					fill: #f2f2f2;
+				}
+			}
+			>svg{
+				fill: #4E4C4C;
+			}
+		}
+
+		&_text{
+			font-weight: 500;
+      font-size: 14px;
+      color: #4E4C4C;
+			&.dark{
+				color: #f2f2f2;
+			}
+		}
+
+		&_link{
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	&__default_link{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&.dark{
+			 >svg{
+				fill: #f2f2f2;
+			 }
+		}
+		>svg{
+			fill: #4E4C4C;
+		}
+		 
+	}
+}

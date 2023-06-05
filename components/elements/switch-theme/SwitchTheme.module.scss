@@ -1,0 +1,60 @@
+$bgInput: #383838;
+
+.theme {
+	display: flex;
+	justify-content: flex-end;
+
+	@media (max-width: 950px) {
+    position: absolute;
+    top: 12px;
+    right: 200px;
+  }
+
+  @media (max-width: 580px) {
+    top: 16px;
+		
+  }
+
+	&__input {
+		position: relative;
+		appearance: none;
+		width: 62px;
+		height: 32px;
+		border-radius: 50%;
+		display: inline-block;
+		overflow: hidden;
+		outline: none;
+		background-color: $bgInput;
+		border: none;
+		cursor: pointer;
+		transition: background 0.4s ease;
+
+		&::before {
+			content: url('https://shivanarrthine.com/public/images/icons/moon.svg');
+			display: block;
+			position: absolute;
+			z-index: 2;
+			width: 24px;
+			height: 24px;
+			background: #222;
+			top: 4px;
+			left: 4px;
+			border-radius: 50%;
+			text-indent: 4px;
+			line-height: 31px;
+			word-spacing: 37px;
+			color: #fff;
+			white-space: nowrap;
+			transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+		}
+		&:checked {
+			background-color: #f2f2f2;
+			border-color: #222;
+		}
+		&:checked::before {
+			left: 32px;
+			background-color: #fff;
+			content: url('https://shivanarrthine.com/public/images/icons/sun.svg');
+		}
+	}
+}

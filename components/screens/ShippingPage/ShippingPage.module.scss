@@ -1,0 +1,116 @@
+.shipping{
+	width: 100%;
+	padding-bottom: 80px;
+	padding-top: 80px;
+
+	&__title{
+		margin-bottom: 48px;
+    font-weight: 500;
+    font-size: 36px;
+    color: #2D2D2D;
+
+    @media (max-width: 820px) {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    &.dark {
+      color: #f2f2f2;
+    }
+	}
+  
+  &__tabs{
+		display: grid;
+    grid-template-columns: 222px 1fr;
+    grid-column-gap: 24px;
+    padding: 24px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+		@media (max-width: 820px) {
+      display: block;
+      padding: 16px;
+    }
+
+    &.dark {
+      background-color: #2d2d2d;
+    }
+
+		&_list{
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			padding-right: 24px;
+      border-right: 1px solid #E1E1E1;
+			&.dark{
+				background-color: #2d2d2d;
+			}
+			@media (max-width: 820px) {
+        padding-right: 0;
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+        border-right: none;
+        border-bottom: 1px solid #E1E1E1;
+      }
+		}
+
+		&_content_text{
+			color: #2d2d2d;
+			&.dark{
+				color: #f2f2f2;
+			}
+		}
+	}
+ 
+	&__item{
+		padding: 12px 16px;
+		transition: color .2s ease-in-out, background-color .2s ease-in-out;
+		border-radius: 4px;
+
+		&.active {
+			color: #f2f2f2;
+			background-color: #F4FAF6;
+			transition: color .2s ease-in-out, background-color .2s ease-in-out;
+			>button:hover {
+				color: #4E4C4C;
+			}
+		}
+
+		&.dark.active {
+			background-color: #222;
+			transition: background-color .2s ease-in-out;
+			color: #f2f2f2;
+			>button:hover {
+				color: #f2f2f2;
+			}
+      
+
+		}
+		> button {
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			color: #4E4C4C;
+			text-align: start;
+			transition: color .2s ease-in-out;
+
+			@media (max-width: 820px) {
+				color: #1C629E;
+			}
+
+			&.dark {
+				color: #f2f2f2;
+
+				@media (max-width: 820px) {
+					color: #1C629E;
+				}
+			}
+
+			&:hover {
+				color: #E0595D;
+				transition: color .2s ease-in-out;
+			}
+	}
+
+}
+}

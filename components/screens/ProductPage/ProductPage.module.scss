@@ -1,0 +1,138 @@
+.product {
+	width: 100%;
+	padding-top: 75px;
+
+	&__top {
+		 padding-bottom: 86px;
+		&_title {
+			font-family: 'Raleway';
+			font-style: normal;
+			font-weight: 500;
+			font-size: 36px;
+			margin-bottom: 30px;
+			line-height: 132.5%;
+			color: #2d2d2d;
+			@media(max-width:530px){
+				font-size: 30px;
+			}
+			&.dark {
+				color: #f2f2f2;
+			}
+		}
+
+		&_inner {
+			 display: flex;
+			 gap: 22px;
+			 @media(max-width:850px){
+				 flex-direction: column;
+				 gap: 20px;
+
+			 }
+		}
+
+		&_info{	
+
+			&_price{
+				display: block;
+				font-weight: 500;
+				font-size: 36px;
+				margin-bottom: 24px;
+				color: #2D2D2D;
+				@media (max-width: 850px) {
+					grid-row: 3;
+				}
+	
+				@media (max-width: 530px) {
+					font-size: 22px;
+				}
+	
+				&.dark {
+					color: #f2f2f2;
+				}
+			}
+
+			&_stock{
+			font-size: 16px;
+      display: block;
+      margin-bottom: 24px;
+      &.success{
+				color: #04B19E;
+			}
+			&.no{
+				color: #E0595D;
+			}
+			&.dark {
+        color: #f2f2f2;
+      }
+
+			}
+
+			&_code {
+				display: block;
+				margin-bottom: 24px;
+				font-size: 18px;
+				font-weight: 700;
+				color: #4E4C4C;
+				&.dark {
+					color: #f2f2f2;
+				}
+	
+				@media (max-width: 530px) {
+					font-size: 16px;
+				}
+			}
+
+			&_btn{
+				border: none;
+				margin-bottom: 48px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 10px;
+				width: 324px;
+				height: 55px;
+				cursor: pointer;
+				background-color: #FFCF62;
+				border-radius: 4px;
+				font-size: 20px;
+				color: #4E4C4C;
+				transition: all .4s ease-in-out;
+				&:hover {
+					background-color: #04B19E;
+					 color: #f2f2f2;
+				}
+				&.add{
+					background-color: #04B19E;
+					
+					color: #f2f2f2;
+				}
+				@media (max-width: 850px) {
+					margin-bottom: 0;
+				}
+	
+				@media (max-width: 730px) {
+					width: 100%;
+					height: 48px;
+				}
+	
+	
+				@media (max-width: 340px) {
+					width: 270px;
+				}
+			}
+		}
+	
+	}
+
+	&__acordion{
+		margin-bottom: 34px;
+		
+	}
+
+	&__bottom_title{
+		margin-bottom: 30px;
+		&.dark{
+			color: #f2f2f2;
+		}
+	}
+}

@@ -1,0 +1,126 @@
+.product {
+  width: 100%;
+  padding-top: 75px;
+}
+.product__top {
+  padding-bottom: 86px;
+}
+.product__top_title {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  margin-bottom: 30px;
+  line-height: 132.5%;
+  color: #2d2d2d;
+}
+@media (max-width: 530px) {
+  .product__top_title {
+    font-size: 30px;
+  }
+}
+.product__top_title.dark {
+  color: #f2f2f2;
+}
+.product__top_inner {
+  display: flex;
+  gap: 22px;
+}
+@media (max-width: 850px) {
+  .product__top_inner {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.product__top_info_price {
+  display: block;
+  font-weight: 500;
+  font-size: 36px;
+  margin-bottom: 24px;
+  color: #2D2D2D;
+}
+@media (max-width: 850px) {
+  .product__top_info_price {
+    grid-row: 3;
+  }
+}
+@media (max-width: 530px) {
+  .product__top_info_price {
+    font-size: 22px;
+  }
+}
+.product__top_info_price.dark {
+  color: #f2f2f2;
+}
+.product__top_info_stock {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 24px;
+}
+.product__top_info_stock.success {
+  color: #04B19E;
+}
+.product__top_info_stock.no {
+  color: #E0595D;
+}
+.product__top_info_stock.dark {
+  color: #f2f2f2;
+}
+.product__top_info_code {
+  display: block;
+  margin-bottom: 24px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4E4C4C;
+}
+.product__top_info_code.dark {
+  color: #f2f2f2;
+}
+@media (max-width: 530px) {
+  .product__top_info_code {
+    font-size: 16px;
+  }
+}
+.product__top_info_btn {
+  border: none;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 324px;
+  height: 55px;
+  cursor: pointer;
+  background-color: #FFCF62;
+  border-radius: 4px;
+  font-size: 20px;
+  color: #4E4C4C;
+  transition: all 0.4s ease-in-out;
+}
+.product__top_info_btn:hover {
+  background-color: #04B19E;
+  color: #f2f2f2;
+}
+.product__top_info_btn.add {
+  background-color: #04B19E;
+  color: #f2f2f2;
+}
+@media (max-width: 850px) {
+  .product__top_info_btn {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 730px) {
+  .product__top_info_btn {
+    width: 100%;
+    height: 48px;
+  }
+}
+@media (max-width: 340px) {
+  .product__top_info_btn {
+    width: 270px;
+  }
+}
+.product__acordion {
+  margin-bottom: 34px;
+}/*# sourceMappingURL=ProductPage.module.css.map */

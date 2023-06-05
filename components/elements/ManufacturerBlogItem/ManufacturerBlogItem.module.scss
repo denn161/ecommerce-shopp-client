@@ -1,0 +1,72 @@
+.item{
+	padding: 8px 8px 8px 16px;
+	background: #FFFFFF;
+  border: 1px solid #D5D5D5;
+  border-radius: 40px;
+	width: fit-content;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	border: 1px solid #D5D5D5;
+	transition: background .1s ease;
+	>button{
+		>svg{
+			>path{
+				fill: #2d2d2d;
+			}
+		}
+	}
+
+	&.dark_mode{
+		background-color: #2d2d2d;
+		color: #f2f2f2;
+		
+     
+		&:hover{
+			color: #2d2d2d;
+		  >button{
+				>svg{
+					>path{
+						fill: red;
+					}
+				}
+			}
+		}
+
+	}
+	&:hover{
+		background: #E9F1FD;
+	
+	}
+
+
+	&__btn{
+		display: grid;
+		place-items: center;
+		cursor: pointer;
+		border: none;
+		background: #fff;
+		border-radius: 50%;
+		outline: none;
+		width: 20px;
+		height: 20px;
+
+		>svg{
+			>path{
+				transition: fill .4s ease;
+			}
+		}
+		&.dark_mode{
+			>svg{
+				>path{
+				 fill: #2d2d2d;
+				}
+		 }
+
+		}
+		
+	
+
+	}
+}
