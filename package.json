@@ -6,9 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "component": "generate-react component",
-    "page": "generate-react component --type=page"
+    "lint": "next lint"
+   
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
