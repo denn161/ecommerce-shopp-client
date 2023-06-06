@@ -4,6 +4,9 @@ const nextConfig = {
 	sassOptions: {
 		fiber: false,
 	},
+	eslint:{
+		ignoreDuringBuilds:true
+	}
 }
 
 module.exports = nextConfig

@@ -1,10 +1,11 @@
-import { HTTPStatus } from '@/constants'
-import { IUser } from '@/types/auth'
 import { AxiosError } from 'axios'
 import { createEffect } from 'effector-next'
 import { toast } from 'react-toastify'
 
 import instance from '../axiosClient'
+
+import { HTTPStatus } from '@/constants'
+import { IUser } from '@/types/auth'
 
 interface ISignup {
 	url: string
@@ -56,33 +57,27 @@ export const singIn = createEffect(
 	}
 )
 export const loginCheckFx = createEffect(async (url: string) => {
-	  try {
+	try {
+		const { data } = await instance.get<IUser>(url)
 
-			const { data } = await instance.get<IUser>(url)
-
-	     return data
-			
-		} catch (error) {
-			  const err = error as AxiosError 
-				if(err.response){
-					 if(err.response.status===HTTPStatus.FORBIDDEN){
-						  return false
-					 }
-				}
-
-				toast.error((error as Error).message)
+		return data
+	} catch (error) {
+		const err = error as AxiosError
+		if (err.response) {
+			if (err.response.status === HTTPStatus.FORBIDDEN) {
+				return false
+			}
 		}
+
+		toast.error((error as Error).message)
+	}
 })
 
-
-export const logout = createEffect(async(url:string)=>{
-	   
-	try {     
-		 await instance.get(url)  
+export const logout = createEffect(async (url: string) => {
+	try {
+		await instance.get(url)
 		toast.success('Вы вышли из системы!')
-				
 	} catch (error) {
-		 toast.error((error as Error).message)
+		toast.error((error as Error).message)
 	}
-
 })
