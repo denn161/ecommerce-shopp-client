@@ -1,34 +1,31 @@
-import { getWindowWidth } from '@/utils/common'
-import {useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+
 import { useThrottle } from './useThrottle'
+import { getWindowWidth } from '@/utils/common'
 
-const useWindowWidth = (maxWidth:number) => {  
+const useWindowWidth = (maxWidth: number) => {
+	const [windowW, setWindowWidth] = useState(getWindowWidth())
+	const [isMedia, setIsMedia] = useState(false)
 
-  const [windowW, setWindowWidth] = useState(getWindowWidth())
-	const [isMedia,setIsMedia] = useState(false)
+	const callback = useCallback(() => {
+		setWindowWidth(getWindowWidth())
+	}, [])
+	const handleResize = useThrottle(callback, 300)
+	useEffect(() => {
+		window.addEventListener('resize', handleResize)
 
-   const callback = useCallback(()=>{
-    setWindowWidth(getWindowWidth())
-   },[])
-   const handleResize = useThrottle(callback,300) 
-  useEffect(() => {
-    window.addEventListener('resize', handleResize)
+		return () => window.removeEventListener('resize', handleResize)
+	}, [])
 
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-  
-	useEffect(()=>{
-     if(windowW.windowWidth<=maxWidth){
-			   setIsMedia(true)
-		 }else{
+	useEffect(() => {
+		if (windowW.windowWidth <= maxWidth) {
+			setIsMedia(true)
+		} else {
 			setIsMedia(false)
-		 }
-	},[windowW,maxWidth])
+		}
+	}, [windowW, maxWidth])
 
-
-  return  {isMedia};
+	return { isMedia }
 }
-
-
 
 export default useWindowWidth

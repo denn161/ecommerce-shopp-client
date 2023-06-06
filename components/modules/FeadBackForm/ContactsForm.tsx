@@ -8,7 +8,6 @@ import { toast } from 'react-toastify'
 import styles from './ContactsForm.module.scss'
 import ButtonForm from '@/components/elements/form-elements/ButtonForm'
 import InputFeadBack from '@/components/elements/form-elements/InputFeadBack'
-import InputField from '@/components/elements/form-elements/InputField'
 import MessageInput from '@/components/elements/form-elements/MessageInput'
 import { $mode } from '@/context/mode'
 import { TFeadBackInputs } from '@/types/feadback-form'
@@ -46,7 +45,7 @@ const ContactsForm = () => {
 				toast.error(`Что-то пошло нет так ${error.text}`)
 			})
 
-			formRef.current.reset()
+		formRef.current.reset()
 	}
 	return (
 		<div

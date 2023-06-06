@@ -1,15 +1,14 @@
-$colorWhite:#f2f2f2;
+$colorWhite: #f2f2f2;
 
-.contacts__form {  
-		background-color: #fff;
-		background: #FFFFFF;	 
-		box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-		border-radius: 4px;
-		padding: 24px;
-		&.dark{
-			background-color: #4e4c4c;
-		}
-	
+.contacts__form {
+	background-color: #fff;
+	background: #ffffff;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 24px;
+	&.dark {
+		background-color: #4e4c4c;
+	}
 
 	&_title {
 		font-family: 'Roboto';
@@ -19,10 +18,10 @@ $colorWhite:#f2f2f2;
 		line-height: 28px;
 		color: #2d2d2d;
 		margin-bottom: 22px;
-		border-bottom: 1px solid #E1E1E1;
+		border-bottom: 1px solid #e1e1e1;
 		padding-bottom: 12px;
-		&.dark{
-			color:$colorWhite ;
+		&.dark {
+			color: $colorWhite;
 		}
 	}
 
@@ -32,9 +31,9 @@ $colorWhite:#f2f2f2;
 		gap: 22px;
 	}
 
-	&_block{
+	&_block {
 		width: 100%;
-		>label{
+		> label {
 			width: 100%;
 		}
 	}
@@ -44,12 +43,11 @@ $colorWhite:#f2f2f2;
 		flex-direction: column;
 		width: 100%;
 		gap: 24px;
-		&.dark{
-			>span{
+		&.dark {
+			> span {
 				color: $colorWhite;
 			}
 		}
-
 	}
 
 	&_placeholder {
@@ -67,51 +65,44 @@ $colorWhite:#f2f2f2;
 		background: #ffffff;
 		border: 1px solid #d5d5d5;
 		border-radius: 4px;
-		&.dark{
+		&.dark {
 			background-color: #2d2d2d;
 			color: $colorWhite;
-			&::placeholder{
+			&::placeholder {
 				color: #ccc;
 			}
 		}
-
 	}
 
 	&_input {
 		outline: none;
-    padding: 0 12px;
+		padding: 0 12px;
 		width: 100%;
 		height: 40px;
-	
 	}
 
-	&_message {		
+	&_message {
 		padding: 9px 12px;
 		height: 176px;
-	  resize: vertical;
+		resize: vertical;
 		outline: none;
 		padding-top: 9px;
 		padding-left: 12px;
-		
-		&.dark{
+
+		&.dark {
 			background-color: #2d2d2d;
 			color: $colorWhite;
-		
 		}
 	}
 
-	
-
-	&_border{
-		 width: 100%; 
-		 height: 1px;
-		 background-color: #E1E1E1;
-		 
+	&_border {
+		width: 100%;
+		height: 1px;
+		background-color: #e1e1e1;
 	}
 }
 
-.error_alert{
+.error_alert {
 	font-size: 12px;
-  color: red !important;
- 
+	color: red !important;
 }

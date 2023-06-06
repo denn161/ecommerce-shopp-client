@@ -1,6 +1,10 @@
-import { setHeaderZindex } from '@/context/header'
-import { removeClassNameForOverlayAndBody, toggleClassNamesForOverlayAndBody } from '@/utils/common'
 import { MutableRefObject, useEffect, useRef, useState } from 'react'
+
+import { setHeaderZindex } from '@/context/header'
+import {
+	removeClassNameForOverlayAndBody,
+	toggleClassNamesForOverlayAndBody,
+} from '@/utils/common'
 
 export const usePopup = () => {
 	const [open, setOpen] = useState(false)
@@ -8,22 +12,20 @@ export const usePopup = () => {
 
 	const handleToggleOpen = () => {
 		window.scrollTo(0, 0)
-	  toggleClassNamesForOverlayAndBody()
-	  if(btnRef.current){
+		toggleClassNamesForOverlayAndBody()
+		if (btnRef.current) {
 			btnRef.current.classList.toggle('active')
 			btnRef.current.classList.toggle('show')
-		
 		}
 
-		setOpen((prev)=>!prev)     
-	  	
+		setOpen((prev) => !prev)
 	}
 
 	const closePopup = () => {
-	  removeClassNameForOverlayAndBody()
-		if(btnRef.current){
+		removeClassNameForOverlayAndBody()
+		if (btnRef.current) {
 			btnRef.current.classList.remove('active')
-		  btnRef.current.classList.remove('show')
+			btnRef.current.classList.remove('show')
 		}
 		setOpen(false)
 		setHeaderZindex(1)

@@ -10,12 +10,12 @@
 	position: relative;
 	padding: 0;
 	margin: 0;
-	transition: left .4s linear;
+	transition: left 0.4s linear;
 	-webkit-appearence: none;
 	-webkit-tap-highlight-color: transparent;
-	&.show{
+	&.show {
 		position: absolute !important;
-		left: 300px; 
+		left: 300px;
 		z-index: 100;
 	}
 	> svg {
@@ -38,8 +38,8 @@
 			stroke-dasharray: var(--array-1, 26px) var(--array-2, 100px);
 			stroke-dashoffset: var(--offset, 126px);
 			transform: translateZ(0);
-			&:nth-child(2){
-				--duration: .7s;
+			&:nth-child(2) {
+				--duration: 0.7s;
 				--easing: ease-in;
 				--offset: 100px;
 				--array-2: 74px;
@@ -47,28 +47,28 @@
 			&:nth-child(3) {
 				--offset: 133px;
 				--array-2: 107px;
-		}
+			}
 		}
 	}
 
 	&.active {
 		svg {
-				path {
-						--offset: 57px;
-						&:nth-child(1),
-						&:nth-child(3) {
-								--delay: .15s;
-								--easing: cubic-bezier(.2, .4, .2, 1.1);
-						}
-						&:nth-child(2) {
-								--duration: .4s;
-								--offset: 2px;
-								--array-1: 1px;
-						}
-						&:nth-child(3) {
-								--offset: 58px;
-						}
+			path {
+				--offset: 57px;
+				&:nth-child(1),
+				&:nth-child(3) {
+					--delay: 0.15s;
+					--easing: cubic-bezier(0.2, 0.4, 0.2, 1.1);
 				}
+				&:nth-child(2) {
+					--duration: 0.4s;
+					--offset: 2px;
+					--array-1: 1px;
+				}
+				&:nth-child(3) {
+					--offset: 58px;
+				}
+			}
 		}
-}
+	}
 }

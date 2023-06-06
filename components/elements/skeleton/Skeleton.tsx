@@ -1,29 +1,34 @@
-import useWindowWidth from '@/hooks/useMediaQuery'
 import cl from 'classnames'
-import React from 'react'
 
 import styles from './Skeleton.module.scss'
 
-const Skeleton = ({ mode,loading,style}: { mode?: string,loading:boolean,style:{} }) => {
-	
-	
-
-
+const Skeleton = ({
+	mode,
+	loading,
+	style,
+}: {
+	mode?: string
+	loading: boolean
+	style: {}
+}) => {
 	return (
 		<div
-		  style={style}
+			style={style}
 			className={cl(styles.card, {
 				[styles.dark_mode]: mode === 'dark',
-				[styles.loading]:loading
-			})}>	    
-        <div className={cl(styles.image,{
-					[styles.dark_mode]:mode==='dark'
-				})}></div>
-          <div className={styles.content}>
-           <h4></h4>
-            <p></p>
-           </div>         
-		      </div>
+				[styles.loading]: loading,
+			})}
+		>
+			<div
+				className={cl(styles.image, {
+					[styles.dark_mode]: mode === 'dark',
+				})}
+			></div>
+			<div className={styles.content}>
+				<h4></h4>
+				<p></p>
+			</div>
+		</div>
 	)
 }
 

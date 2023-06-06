@@ -1,3 +1,4 @@
+import { useStore } from 'effector-react'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
@@ -9,12 +10,10 @@ import {
 } from '@/context/boiler-parts'
 import { IOption, SelectOptionType } from '@/types/common'
 import { createSelectOption } from '@/utils/common'
-import { useStore } from 'effector-react'
 
-export const useSelect = (setLoading:(arg:boolean)=>void) => {
-
+export const useSelect = (setLoading: (arg: boolean) => void) => {
 	const [category, setCategory] = useState<SelectOptionType>(null)
-  
+
 	const boilerParts = useStore($boillerParts)
 	const router = useRouter()
 
@@ -31,22 +30,21 @@ export const useSelect = (setLoading:(arg:boolean)=>void) => {
 		)
 	const handleFilter = (selectedOption: SelectOptionType) => {
 		setLoading(true)
-		setCategory(selectedOption)		
+		setCategory(selectedOption)
 		switch ((selectedOption as IOption).value) {
-			case 'Сначала дешевые':			
+			case 'Сначала дешевые':
 				setBoilerPartsCheapFirst()
 				updateQueryParam('cheap')
-			
+
 				break
 			case 'По популярности':
-				
 				setBoilerPartsByPopularity()
-				updateQueryParam('popular')	
-				
+				updateQueryParam('popular')
+
 				break
-			case 'Сначала дорогие':			
+			case 'Сначала дорогие':
 				setBoilerPartsExpensiveFirst()
-				updateQueryParam('expensive')				
+				updateQueryParam('expensive')
 				break
 		}
 
@@ -54,7 +52,7 @@ export const useSelect = (setLoading:(arg:boolean)=>void) => {
 	}
 
 	useEffect(() => {
-    if(boilerParts.rows){
+		if (boilerParts.rows) {
 			switch (router.query.param) {
 				case 'cheap':
 					setBoilerPartsCheapFirst()
@@ -74,8 +72,7 @@ export const useSelect = (setLoading:(arg:boolean)=>void) => {
 					break
 			}
 		}
-		
-	}, [router.query.param,boilerParts.rows])
+	}, [router.query.param, boilerParts.rows])
 
 	return { category, handleFilter }
 }

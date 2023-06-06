@@ -1,4 +1,3 @@
-import { $mode } from '@/context/mode'
 import cl from 'classnames'
 import { useStore } from 'effector-react'
 import Link from 'next/link'
@@ -6,6 +5,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 import styles from './BreadCrumbs.module.scss'
 import CrumbArrowSvg from './svg/CrumbArrowSvg'
+import { $mode } from '@/context/mode'
 
 interface ICrumb {
 	text: string
@@ -21,7 +21,7 @@ function Crumb({
 	last = false,
 }: ICrumb) {
 	const [text, setText] = useState(defaultText)
-   const mode =useStore($mode)
+	const mode = useStore($mode)
 
 	const textGen = useCallback(async () => {
 		if (!Boolean(textGenerator)) return
@@ -38,16 +38,18 @@ function Crumb({
 		return (
 			<a>
 				<span
-					className={cl(styles.breadcrumbs__item_icon,{
-            [styles.dark]:mode==='dark'
-          })}
+					className={cl(styles.breadcrumbs__item_icon, {
+						[styles.dark]: mode === 'dark',
+					})}
 					style={{ marginRight: 13 }}
 				>
 					<CrumbArrowSvg />
 				</span>
-				<span className={cl(styles.breadcrumbs__item_text, 'last-crumb',{
-          [styles.dark]:mode==='dark'
-        })}>
+				<span
+					className={cl(styles.breadcrumbs__item_text, 'last-crumb', {
+						[styles.dark]: mode === 'dark',
+					})}
+				>
 					{text}
 				</span>
 			</a>
@@ -58,9 +60,13 @@ function Crumb({
 			<span>
 				<CrumbArrowSvg />
 			</span>
-			<span className={cl(styles.breadcrumbs__item_text,{
-          [styles.dark]:mode==='dark'
-        })}>{text}</span>
+			<span
+				className={cl(styles.breadcrumbs__item_text, {
+					[styles.dark]: mode === 'dark',
+				})}
+			>
+				{text}
+			</span>
 		</Link>
 	)
 }

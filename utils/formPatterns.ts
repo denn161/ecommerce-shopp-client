@@ -1,21 +1,22 @@
-export const namePatterns = ()=>({
+export const namePatterns = () => ({
 	value: /^[а-яА-Яa-zA-ZёЁ]\w+/,
 	message: 'Недопустимое значение имени!',
 })
 
-export const emailPattern = ()=>({
-	 value:/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
-	 message:'Введите пожалуйста валидную почту'
+export const emailPattern = () => ({
+	value: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
+	message: 'Введите пожалуйста валидную почту',
 })
 
-export const phonePattern =()=>({	
-		value: /^\d*[1-9]\d*$/,
-		message: 'Недопустимое значение'	
+export const phonePattern = () => ({
+	value: /^\d*[1-9]\d*$/,
+	message: 'Недопустимое значение',
 })
 
-function validEmail(str:string) {
-	const filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
-	return String(str).search (filter) != -1;
+function validEmail(str: string) {
+	const filter =
+		/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/
+	return String(str).search(filter) != -1
 }
 
 // function checkEmail() {

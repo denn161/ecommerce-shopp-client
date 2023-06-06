@@ -1,16 +1,16 @@
 'use client'
 
 import cl from 'classnames'
+import { useStore } from 'effector-react'
 
 import { useSwitch } from '../useSwitch'
 
 import styles from './Auth.module.scss'
-import SignupForm from '@/components/modules/auth/SignupForm'
-import useWindowWidth from '@/hooks/useMediaQuery'
-import SigninForm from '@/components/modules/auth/SigninForm'
-import { useStore } from 'effector-react'
-import { $mode } from '@/context/mode'
 import SwitchTheme from '@/components/elements/switch-theme/SwitchTheme'
+import SigninForm from '@/components/modules/auth/SigninForm'
+import SignupForm from '@/components/modules/auth/SignupForm'
+import { $mode } from '@/context/mode'
+import useWindowWidth from '@/hooks/useMediaQuery'
 
 const AuthPage = () => {
 	const mode = useStore($mode)
@@ -36,7 +36,7 @@ const AuthPage = () => {
 			})}
 		>
 			<div className={styles.mode_toggle}>
-				<SwitchTheme/>
+				<SwitchTheme />
 			</div>
 			<div
 				ref={aContainer}
@@ -61,7 +61,7 @@ const AuthPage = () => {
 						[styles.dark_mode]: mode === 'dark',
 					})}
 				>
-				<SigninForm mode={mode}/>
+					<SigninForm mode={mode} />
 				</div>
 			</div>
 			<div

@@ -11,9 +11,9 @@ import { CatalogFilters } from '@/components/modules/CatalogFilters'
 import CatalogProduct from '@/components/modules/CatalogProduct/CatalogProduct'
 import { ManufacturerBlock } from '@/components/modules/ManufacturerBlog'
 import { $mode } from '@/context/mode'
+import useWindowWidth from '@/hooks/useMediaQuery'
 import { usePopup } from '@/hooks/usePopup'
 import { IQueryParams } from '@/types/catalog'
-import useWindowWidth from '@/hooks/useMediaQuery'
 
 interface ICatalogPageProps {
 	query: IQueryParams
@@ -21,8 +21,8 @@ interface ICatalogPageProps {
 
 export const CatalogPage = ({ query }: ICatalogPageProps) => {
 	const mode = useStore($mode)
-  const {isMedia} =useWindowWidth(820)
-	const { closePopup, handleToggleOpen, open,btnRef } = usePopup()
+	const { isMedia } = useWindowWidth(820)
+	const { closePopup, handleToggleOpen, open, btnRef } = usePopup()
 
 	const {
 		loading,
@@ -55,7 +55,7 @@ export const CatalogPage = ({ query }: ICatalogPageProps) => {
 				/>
 				<AnimatePresence>
 					<ManufacturerBlock
-					  isMobile={isMedia}
+						isMobile={isMedia}
 						setLoading={setLoading}
 						isBoiler={isBoilerManufacturerChecked}
 						isParts={isPartsManufacturersChecked}
@@ -69,7 +69,7 @@ export const CatalogPage = ({ query }: ICatalogPageProps) => {
 				<div className={cl(styles.catalog__bottom)}>
 					<div className={styles.catalog__inner}>
 						<CatalogFilters
-						  isOpenFilters={open}
+							isOpenFilters={open}
 							closePopup={closePopup}
 							spinner={spinner}
 							applyFilters={applyFilters}

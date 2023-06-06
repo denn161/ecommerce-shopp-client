@@ -17,8 +17,11 @@ import {
 } from '@/context/boiler-parts'
 import { IBoilerParts } from '@/types/boiler-parts'
 import { IQueryParams } from '@/types/catalog'
-
-import {checkQueryParams, updateParamsAndFilters, updateParamsAndFiltersFromQuery } from '@/utils/catalog'
+import {
+	checkQueryParams,
+	updateParamsAndFilters,
+	updateParamsAndFiltersFromQuery,
+} from '@/utils/catalog'
 
 export const useCatalogPage = (query: IQueryParams) => {
 	const isValidOffset = useMemo(
@@ -142,7 +145,8 @@ export const useCatalogPage = (query: IQueryParams) => {
 						priceTo: priceTo,
 						offset: initialPage + 1,
 					},
-					`${initialPage}${priceQuery}${boilersQuery}${partsQuery}`,router
+					`${initialPage}${priceQuery}${boilersQuery}${partsQuery}`,
+					router
 				)
 				return
 			}
@@ -157,7 +161,6 @@ export const useCatalogPage = (query: IQueryParams) => {
 					`${initialPage}${priceQuery}`,
 					router
 				)
-			
 			}
 			if (boilers.length && parts.length) {
 				updateParamsAndFilters(
@@ -181,8 +184,6 @@ export const useCatalogPage = (query: IQueryParams) => {
 					`${initialPage}${boilersQuery}`,
 					router
 				)
-
-				
 			}
 			if (parts.length) {
 				updateParamsAndFilters(
@@ -193,11 +194,10 @@ export const useCatalogPage = (query: IQueryParams) => {
 					`${initialPage}${partsQuery}`,
 					router
 				)
-			
 			}
 
 			if (boilers.length && isPriceRange) {
-				  console.log('boiler and price')
+				console.log('boiler and price')
 				updateParamsAndFilters(
 					{
 						boilers: encodedBoilerQuery,
@@ -208,7 +208,7 @@ export const useCatalogPage = (query: IQueryParams) => {
 					`${initialPage}${priceQuery}${boilersQuery}`,
 					router
 				)
-				  return
+				return
 			}
 			if (parts.length && isPriceRange) {
 				updateParamsAndFilters(
@@ -221,7 +221,7 @@ export const useCatalogPage = (query: IQueryParams) => {
 					`${initialPage}${priceQuery}${partsQuery}`,
 					router
 				)
-			   return
+				return
 			}
 		} catch (error) {
 			toast.error((error as Error).message)
@@ -292,8 +292,9 @@ export const useCatalogPage = (query: IQueryParams) => {
 				resetPagination(isFilterInQuery ? filteredBoilerParts : data)
 				return
 			}
-       
-			const {isValidBoilersValue,isValidPartsValue,isValidPriceQueryValue} =checkQueryParams(router)
+
+			const { isValidBoilersValue, isValidPartsValue, isValidPriceQueryValue } =
+				checkQueryParams(router)
 
 			const result = await getBoilerPartsFx(
 				`/boiler-parts?limit=20&offset=${selected}${
@@ -309,10 +310,18 @@ export const useCatalogPage = (query: IQueryParams) => {
 						? `&priceFrom=${router.query.priceFrom}&priceTo=${router.query.priceTo}`
 						: ''
 				}${
-					isFilterInQuery && isValidBoilersValue&&isValidPriceQueryValue
+					isFilterInQuery && isValidBoilersValue && isValidPriceQueryValue
 						? `&boilers=${router.query.boilers}&parts=${router.query.parts}`
 						: ''
-				}${isFilterInQuery && isValidBoilersValue&&isValidPriceQueryValue ?`&boilers=${router.query.boilers}&priceFrom=${router.query.priceFrom}&priceTo=${router.query.priceTo}`:''}${isFilterInQuery && isValidPartsValue&&isValidPriceQueryValue ?`&parts=${router.query.parts}&priceFrom=${router.query.priceFrom}&priceTo=${router.query.priceTo}`:''}`
+				}${
+					isFilterInQuery && isValidBoilersValue && isValidPriceQueryValue
+						? `&boilers=${router.query.boilers}&priceFrom=${router.query.priceFrom}&priceTo=${router.query.priceTo}`
+						: ''
+				}${
+					isFilterInQuery && isValidPartsValue && isValidPriceQueryValue
+						? `&parts=${router.query.parts}&priceFrom=${router.query.priceFrom}&priceTo=${router.query.priceTo}`
+						: ''
+				}`
 			)
 			router.push(
 				{
@@ -333,37 +342,41 @@ export const useCatalogPage = (query: IQueryParams) => {
 		}
 	}
 
-	const updatePriceFromQuery = (priceFrom:number,priceTo:number)=>{
+	const updatePriceFromQuery = (priceFrom: number, priceTo: number) => {
 		setIsFilterInQuery(true)
-		setPriceRange([priceFrom,priceTo])
+		setPriceRange([priceFrom, priceTo])
 		setIsPriceRange(true)
 	}
 
 	const applyFiltersFromQuery = async () => {
 		try {
-			  const {isValidBoilersValue,isValidPartsValue,isValidPriceQueryValue,priceFromQueryValue,priceToQueryValue,priceQuery,boilerQuery,boilersQueryParams,partsQuery,partsQueryParams} =checkQueryParams(router)
+			const {
+				isValidBoilersValue,
+				isValidPartsValue,
+				isValidPriceQueryValue,
+				priceFromQueryValue,
+				priceToQueryValue,
+				priceQuery,
+				boilerQuery,
+				boilersQueryParams,
+				partsQuery,
+				partsQueryParams,
+			} = checkQueryParams(router)
 
-			if (
-				isValidBoilersValue &&
-				isValidPartsValue &&
-			  isValidPriceQueryValue
-			) {
+			if (isValidBoilersValue && isValidPartsValue && isValidPriceQueryValue) {
 				updateParamsAndFiltersFromQuery(() => {
-				  updatePriceFromQuery(+priceFromQueryValue,+priceToQueryValue)
+					updatePriceFromQuery(+priceFromQueryValue, +priceToQueryValue)
 					setBoilersManufacturersFromQuery(boilersQueryParams)
 					setPartsManufacturersFromQuery(partsQueryParams)
 				}, `${currentPage}${priceQuery}${boilerQuery}${partsQuery}`)
 
 				return
 			}
-       
-			if (			
-			  isValidPriceQueryValue
-			) {
+
+			if (isValidPriceQueryValue) {
 				updateParamsAndFiltersFromQuery(() => {
-					updatePriceFromQuery(+priceFromQueryValue,+priceToQueryValue)		
+					updatePriceFromQuery(+priceFromQueryValue, +priceToQueryValue)
 				}, `${currentPage}${priceQuery}`)
-			
 			}
 
 			if (isValidBoilersValue && isValidPartsValue) {
@@ -372,46 +385,34 @@ export const useCatalogPage = (query: IQueryParams) => {
 					setBoilersManufacturersFromQuery(boilersQueryParams)
 					setPartsManufacturersFromQuery(partsQueryParams)
 				}, `${currentPage}${boilerQuery}${partsQuery}`)
-
-			
 			}
 
 			if (isValidBoilersValue && isValidPriceQueryValue) {
 				updateParamsAndFiltersFromQuery(() => {
-					updatePriceFromQuery(+priceFromQueryValue,+priceToQueryValue)
+					updatePriceFromQuery(+priceFromQueryValue, +priceToQueryValue)
 					setBoilersManufacturersFromQuery(boilersQueryParams)
 				}, `${currentPage}${priceQuery}${boilerQuery}`)
-				
 			}
 
-			if (
-				isValidBoilersValue
-			) {
+			if (isValidBoilersValue) {
 				updateParamsAndFiltersFromQuery(() => {
-					setIsFilterInQuery(true)				
+					setIsFilterInQuery(true)
 					setBoilersManufacturersFromQuery(boilersQueryParams)
 				}, `${currentPage}${boilerQuery}`)
-			
 			}
 
-			if (
-			
-				isValidPartsValue 
-			) {
+			if (isValidPartsValue) {
 				updateParamsAndFiltersFromQuery(() => {
-					setIsFilterInQuery(true)			
+					setIsFilterInQuery(true)
 					setPartsManufacturersFromQuery(partsQueryParams)
 				}, `${currentPage}${partsQuery}`)
-
-				
 			}
-
 		} catch (error) {
-			const err = error as Error 
+			const err = error as Error
 
-			if(err.message==='URI malformed'){
+			if (err.message === 'URI malformed') {
 				toast.warning('Не правильная ссылка для фильтров')
-				 return
+				return
 			}
 			toast.error(err.message)
 		}

@@ -1,9 +1,3 @@
-
-export const useCatalogProduct = ()=>{
- 
- 
-
-
+export const useCatalogProduct = () => {
 	return {}
-
 }

@@ -19,8 +19,8 @@
 		font-size: 55px;
 		line-height: 112%;
 		letter-spacing: 0.022em;
-		@media(max-width:560px){
-			 display: none;
+		@media (max-width: 560px) {
+			display: none;
 		}
 	}
 	&__subtitle {
@@ -35,14 +35,14 @@
 	&__info {
 		&_text {
 			font-family: 'Roboto';
-			max-width:1076px;
+			max-width: 1076px;
 			width: 100%;
 			font-style: normal;
 			font-weight: 400;
 			font-size: 16px;
 			line-height: 150.19%;
 			color: #4e4c4c;
-			&.dark_mode{
+			&.dark_mode {
 				color: #f2f2f2;
 			}
 		}

@@ -1,9 +1,3 @@
-
-export const useTemplateName = ()=>{
- 
- 
-
-
+export const useTemplateName = () => {
 	return {}
-
 }

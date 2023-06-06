@@ -1,5 +1,6 @@
 import cl from 'classnames'
 import { useStore } from 'effector-react'
+
 import styles from './CatalogFilters.module.scss'
 import CatalogFiltersMobile from './CatalogFiltersMobile'
 import CheckedFiltersList from './CheckedFiltersList'
@@ -9,7 +10,7 @@ import PriceRange from '@/components/elements/price-range/PriceRange'
 import {
 	$boillerManufacturers,
 	$partsManufacturers,
-	setBoilersManufacturers,	
+	setBoilersManufacturers,
 	setPartsManufacturers,
 	updateBoilerManufacturer,
 	updatePartsManufacturer,
@@ -35,15 +36,15 @@ export const CatalogFilters = ({
 	const partsManufacturer = useStore($partsManufacturers)
 
 	return (
-		<>		
-				<div
-					className={cl(styles.filters, {
-						[styles.dark]: mode === 'dark',
-						[styles.open]:isOpenFilters
-					})}
-				>
-					{isMedia?(
-						<CatalogFiltersMobile					
+		<>
+			<div
+				className={cl(styles.filters, {
+					[styles.dark]: mode === 'dark',
+					[styles.open]: isOpenFilters,
+				})}
+			>
+				{isMedia ? (
+					<CatalogFiltersMobile
 						isOpenMobileFilter={isOpenFilters}
 						closePopup={closePopup}
 						priceRange={priceRange}
@@ -54,67 +55,64 @@ export const CatalogFilters = ({
 						applyFilters={applyFilters}
 						spinner={spinner}
 						mode={mode}
-				
 					/>
-					):(
-           <>
-					  <h3
-						className={cl(styles.filters__title, {
-							[styles.dark]: mode === 'dark',
-						})}
-					>
-						Фильтры
-					</h3>
-					<AccordionFilter
-						isMobileFilters={isMedia}
-						title={'Производители котлов'}
-						titleClass={styles.filters__list_title}
-					>
-						<CheckedFiltersList
-							updateManufacturer={updateBoilerManufacturer}
-							setManufacturer={setBoilersManufacturers}
-							items={boilerManufacturers}
+				) : (
+					<>
+						<h3
+							className={cl(styles.filters__title, {
+								[styles.dark]: mode === 'dark',
+							})}
+						>
+							Фильтры
+						</h3>
+						<AccordionFilter
+							isMobileFilters={isMedia}
+							title={'Производители котлов'}
+							titleClass={styles.filters__list_title}
+						>
+							<CheckedFiltersList
+								updateManufacturer={updateBoilerManufacturer}
+								setManufacturer={setBoilersManufacturers}
+								items={boilerManufacturers}
+								mode={mode}
+							/>
+						</AccordionFilter>
+						<AccordionFilter
+							title={'Цена'}
+							titleClass={styles.filters__list_title}
+						>
+							<PriceRange
+								setIsPriceRange={setIsPriceRange}
+								mode={mode}
+								priceRange={priceRange}
+								setPriceRange={setPriceRange}
+							/>
+							<div style={{ height: 47 }}></div>
+						</AccordionFilter>
+						<AccordionFilter
+							isMobileFilters={isMedia}
+							title={'Производители запчастей'}
+							titleClass={styles.filters__list_title}
+						>
+							<CheckedFiltersList
+								updateManufacturer={updatePartsManufacturer}
+								setManufacturer={setPartsManufacturers}
+								items={partsManufacturer}
+								mode={mode}
+							/>
+						</AccordionFilter>
+						<FilterActions
+							btnText={'Сбросить'}
+							isDisabled={isDisabled}
+							isResetBtn
+							resetFilters={resetFilters}
+							applyFilters={applyFilters}
 							mode={mode}
+							spinner={spinner}
 						/>
-					</AccordionFilter>
-					<AccordionFilter
-						title={'Цена'}
-						titleClass={styles.filters__list_title}
-					>
-						<PriceRange
-							setIsPriceRange={setIsPriceRange}
-							mode={mode}
-							priceRange={priceRange}
-							setPriceRange={setPriceRange}
-						/>
-						<div style={{ height: 47 }}></div>
-					</AccordionFilter>
-					<AccordionFilter
-						isMobileFilters={isMedia}
-						title={'Производители запчастей'}
-						titleClass={styles.filters__list_title}
-					>
-						<CheckedFiltersList
-							updateManufacturer={updatePartsManufacturer}
-							setManufacturer={setPartsManufacturers}
-							items={partsManufacturer}
-							mode={mode}
-						/>
-					</AccordionFilter>
-					<FilterActions
-						btnText={'Сбросить'}
-						isDisabled={isDisabled}
-						isResetBtn
-						resetFilters={resetFilters}
-						applyFilters={applyFilters}
-						mode={mode}
-						spinner={spinner}
-					/>					 
-					 </>
-					)}
-					
-				</div>
-			
+					</>
+				)}
+			</div>
 		</>
 	)
 }

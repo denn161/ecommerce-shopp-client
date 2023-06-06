@@ -1,21 +1,24 @@
 'use client'
+
 import cl from 'classnames'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import styles from '../../modules/FeadBackForm/ContactsForm.module.scss'
 
 import { TInputPropsField, TTextaAreaProps } from '@/types/auth'
 
-const MessageInput = forwardRef<HTMLTextAreaElement,TTextaAreaProps>(
-	({ error, placeholder,mode,label, type = 'text', style, ...rest}, ref) => {
+const MessageInput = forwardRef<HTMLTextAreaElement, TTextaAreaProps>(
+	({ error, placeholder, mode, label, type = 'text', style, ...rest }, ref) => {
 		return (
 			<div style={style} className={cl(styles.contacts__form_block)}>
-				<label className={cl(styles.contacts__label,{
-					[styles.dark]:mode==='dark'
-				})}>				
+				<label
+					className={cl(styles.contacts__label, {
+						[styles.dark]: mode === 'dark',
+					})}
+				>
 					<textarea
-						className={cl(styles.contacts__form_message,{
-							[styles.dark]:mode==='dark'
+						className={cl(styles.contacts__form_message, {
+							[styles.dark]: mode === 'dark',
 						})}
 						ref={ref}
 						placeholder={placeholder}

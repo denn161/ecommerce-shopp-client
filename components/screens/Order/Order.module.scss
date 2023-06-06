@@ -27,7 +27,7 @@ $whiteColor: #f2f2f2;
 		display: grid;
 		grid-template-columns: 1fr 439px;
 		column-gap: 16px;
-		&.dark{
+		&.dark {
 			background-color: #4e4c4c;
 		}
 
@@ -42,7 +42,7 @@ $whiteColor: #f2f2f2;
 
 	&__cart {
 		background-color: #fff;
-		&.dark{
+		&.dark {
 			background-color: #2d2d2d;
 		}
 		@media (max-width: 1160px) {
@@ -119,7 +119,7 @@ $whiteColor: #f2f2f2;
 
 			&:disabled {
 				color: #7b7b7b;
-        opacity: .7;
+				opacity: 0.7;
 				background-color: #f0f0f0;
 				pointer-events: none;
 			}
@@ -131,18 +131,16 @@ $whiteColor: #f2f2f2;
 			user-select: none;
 			width: 100%;
 			color: #4e4c4c;
-      &.dark{
-        >span{
-          color: $whiteColor;
-        }
-      }
-
+			&.dark {
+				> span {
+					color: $whiteColor;
+				}
+			}
 
 			> strong {
 				font-weight: 400;
 				color: #787878;
 			}
-
 
 			&_input {
 				appearance: none;

@@ -6,12 +6,12 @@ import { useSelect } from './useSelect'
 import { optionStyles } from '@/components/elements/search-input'
 import { $mode } from '@/context/mode'
 import { categoriesSelect, createSelectOption } from '@/utils/common'
- 
-interface IManufacturerSelect{
-	 setLoading:(arg:boolean)=>void
+
+interface IManufacturerSelect {
+	setLoading: (arg: boolean) => void
 }
 
-const ManufacturerSelect = ({setLoading}:IManufacturerSelect) => {
+const ManufacturerSelect = ({ setLoading }: IManufacturerSelect) => {
 	const { category, handleFilter } = useSelect(setLoading)
 	const mode = useStore($mode)
 

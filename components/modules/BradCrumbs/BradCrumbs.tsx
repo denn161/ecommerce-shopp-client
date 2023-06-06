@@ -1,8 +1,9 @@
+import cl from 'classnames'
 import { useStore } from 'effector-react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
-import cl from 'classnames'
+
 import styles from './BreadCrumbs.module.scss'
 import Crumb from './Crumb'
 import DefaultCrumbSvg from './svg/DefaultCrumbSvg'
@@ -50,9 +51,12 @@ const Breadcrumbs = ({
 		<div className="container">
 			<ul className={styles.breadcrumbs__list}>
 				<li className={styles.breadcrumbs__item}>
-					<Link className={cl(styles.breadcrumbs__default_link,{
-            [styles.dark]:mode==='dark'
-          })}  href="/dashboard">
+					<Link
+						className={cl(styles.breadcrumbs__default_link, {
+							[styles.dark]: mode === 'dark',
+						})}
+						href="/dashboard"
+					>
 						<DefaultCrumbSvg />
 					</Link>
 				</li>

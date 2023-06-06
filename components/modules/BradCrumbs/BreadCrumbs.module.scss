@@ -1,6 +1,5 @@
-.breadcrumbs{
-
-	&__list{
+.breadcrumbs {
+	&__list {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
@@ -10,48 +9,47 @@
 		align-items: center;
 	}
 
-	&__item{
-		&:not(:last-child){
-			 margin-right:13px;
+	&__item {
+		&:not(:last-child) {
+			margin-right: 13px;
 		}
-		&_icon{
-			&.dark{
-				>svg{
+		&_icon {
+			&.dark {
+				> svg {
 					fill: #f2f2f2;
 				}
 			}
-			>svg{
-				fill: #4E4C4C;
+			> svg {
+				fill: #4e4c4c;
 			}
 		}
 
-		&_text{
+		&_text {
 			font-weight: 500;
-      font-size: 14px;
-      color: #4E4C4C;
-			&.dark{
+			font-size: 14px;
+			color: #4e4c4c;
+			&.dark {
 				color: #f2f2f2;
 			}
 		}
 
-		&_link{
+		&_link {
 			display: flex;
 			align-items: center;
 		}
 	}
 
-	&__default_link{
+	&__default_link {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		&.dark{
-			 >svg{
+		&.dark {
+			> svg {
 				fill: #f2f2f2;
-			 }
+			}
 		}
-		>svg{
-			fill: #4E4C4C;
+		> svg {
+			fill: #4e4c4c;
 		}
-		 
 	}
 }

@@ -1,51 +1,52 @@
-import { getCartItems } from '@/app/api/shopping-cart'
-import { $mode } from '@/context/mode'
-import { $shoppingCard, $totalPrice, setShoppingCard, setTotalPrice } from '@/context/shopping-card'
-import { $user } from '@/context/user'
 import { useStore } from 'effector-react'
 import { useCallback, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { getCartItems } from '@/app/api/shopping-cart'
+import { $mode } from '@/context/mode'
+import {
+	$shoppingCard,
+	$totalPrice,
+	setShoppingCard,
+	setTotalPrice,
+} from '@/context/shopping-card'
+import { $user } from '@/context/user'
 
 const useCardPopup = () => {
+	const [loading, setLoading] = useState(false)
 
-  	const [loading,setLoading] =useState(false) 
-    
-	  const user = useStore($user)
+	const user = useStore($user)
 
-		const mode = useStore($mode)
+	const mode = useStore($mode)
 
-		const cards = useStore($shoppingCard)
-   
-		const totalPrice = useStore($totalPrice)
-		
+	const cards = useStore($shoppingCard)
 
-   	const loadCardItems = useCallback(async()=>{
-           try {
-						setLoading(true)
+	const totalPrice = useStore($totalPrice)
 
-						const data = await getCartItems(`/shopping-cart/${user.userId}`) 
+	const loadCardItems = useCallback(async () => {
+		try {
+			setLoading(true)
 
-						setShoppingCard(data)
-						
-					 } catch (error) {
-						 const err = error as Error 
-						 toast.error(err.message)
-						
-					 }finally{
-						setLoading(false)
-					 }
-	},[])	   
+			const data = await getCartItems(`/shopping-cart/${user.userId}`)
 
-	useEffect(()=>{
-    loadCardItems()
-	},[]) 
+			setShoppingCard(data)
+		} catch (error) {
+			const err = error as Error
+			toast.error(err.message)
+		} finally {
+			setLoading(false)
+		}
+	}, [])
+
+	useEffect(() => {
+		loadCardItems()
+	}, [])
 
 	useEffect(() => {
 		setTotalPrice(cards.reduce((acc, item) => acc + item.total_price, 0))
 	}, [cards])
 
-	return{loading,cards,mode,totalPrice}
+	return { loading, cards, mode, totalPrice }
 }
 
 export default useCardPopup

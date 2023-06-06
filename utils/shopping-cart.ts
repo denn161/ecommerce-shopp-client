@@ -64,7 +64,7 @@ export const updateTotalPriceCartItem = async (
 				totalPrice,
 			},
 		})
-	
+
 		updateTotalPriceProduct({ partId, totalPrice: data.totalPrice })
 	} catch (error) {
 		toast.error((error as Error).message)
@@ -79,7 +79,7 @@ export const updateCountCartItem = async (count: number, partId: number) => {
 				count,
 			},
 		})
-		updateCountProduct({ partId, count: data.count })		
+		updateCountProduct({ partId, count: data.count })
 	} catch (error) {
 		toast.error((error as Error).message)
 	}

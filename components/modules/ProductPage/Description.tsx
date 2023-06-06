@@ -1,5 +1,5 @@
 import cl from 'classnames'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 import styles from './ProductPage.module.scss'
 import { IBoilerPart } from '@/types/boiler-parts'

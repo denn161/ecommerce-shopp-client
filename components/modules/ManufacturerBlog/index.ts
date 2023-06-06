@@ -1,1 +1,1 @@
-export * from './ManufacturerBlog';
+export * from './ManufacturerBlog'

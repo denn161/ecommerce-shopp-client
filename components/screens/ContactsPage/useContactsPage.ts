@@ -1,9 +1,3 @@
-
-export const useContactsPage = ()=>{
- 
- 
-
-
+export const useContactsPage = () => {
 	return {}
-
 }

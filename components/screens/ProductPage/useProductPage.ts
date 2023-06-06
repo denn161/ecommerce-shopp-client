@@ -1,22 +1,23 @@
-import { getBoilerPartsFx } from '@/app/api/boiler-parts'
-import { $boilerPart } from '@/context/boiler-part'
-import { $boillerParts, setBoilerParts, setBoilerPartsByPopularity } from '@/context/boiler-parts'
-import { $mode } from '@/context/mode'
-import useWindowWidth from '@/hooks/useMediaQuery'
 import { useStore } from 'effector-react'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
+import { getBoilerPartsFx } from '@/app/api/boiler-parts'
+import { $boilerPart } from '@/context/boiler-part'
+import {
+	$boillerParts,
+	setBoilerParts,
+	setBoilerPartsByPopularity,
+} from '@/context/boiler-parts'
+import { $mode } from '@/context/mode'
+import useWindowWidth from '@/hooks/useMediaQuery'
 
-export const useProductPage = ()=>{
- 
+export const useProductPage = () => {
 	const [loading, setLoading] = useState(false)
 	const mode = useStore($mode)
 	const { isMedia: isMobile850 } = useWindowWidth(850)
 	const boilerPart = useStore($boilerPart)
-	const parts = useStore($boillerParts)	
-
-	
+	const parts = useStore($boillerParts)
 
 	const loadProducts = async () => {
 		try {
@@ -33,9 +34,7 @@ export const useProductPage = ()=>{
 
 	useEffect(() => {
 		loadProducts()
-	}, []) 
+	}, [])
 
-
-	return {loading,mode,boilerPart,isMobile850,parts}
-
+	return { loading, mode, boilerPart, isMobile850, parts }
 }

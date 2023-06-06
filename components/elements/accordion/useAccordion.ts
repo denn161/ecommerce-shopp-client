@@ -1,16 +1,11 @@
 import { useState } from 'react'
 
-export const useAccardion = ()=>{
-	
-	const [expandet,setExpandet] =useState(false)
+export const useAccardion = () => {
+	const [expandet, setExpandet] = useState(false)
 
-	const handleToggleAccordion = ()=>{
-		 setExpandet((prev)=>!prev)
-	   
+	const handleToggleAccordion = () => {
+		setExpandet((prev) => !prev)
 	}
 
-	return {expandet,handleToggleAccordion}
-	
-
-
+	return { expandet, handleToggleAccordion }
 }

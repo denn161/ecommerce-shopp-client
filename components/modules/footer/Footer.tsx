@@ -1,10 +1,7 @@
 import cl from 'classnames'
-import Link from 'next/link'
-import React from 'react'
 
 import styles from './Footer.module.scss'
 import FooterLogo from './FooterLogo'
-import LogoSvg from './img/LogoSvg'
 import MailSvg from './img/MailSvg'
 import MapSvg from './img/MapSvg'
 import { GooglePaySvg, MasterCardSvg, PaySvg, VisaSvg } from './img/PaySvg'
@@ -16,22 +13,22 @@ import Accordion from '@/components/elements/accordion/Accordion'
 import useWindowWidth from '@/hooks/useMediaQuery'
 
 const Footer = () => {
-	const { isMedia:isLogo } = useWindowWidth(750)
-   const {isMedia} =useWindowWidth(550)
+	const { isMedia: isLogo } = useWindowWidth(750)
+	const { isMedia } = useWindowWidth(550)
 	return (
 		<footer className={cl(styles.footer)}>
 			<div className={styles.footer__container}>
 				<div className={styles.footer__top}>
-				 {!isLogo&&(	<FooterLogo />)}
+					{!isLogo && <FooterLogo />}
 					<div className={styles.footer__inner}>
 						<div className={styles.footer__top_item}>
 							{isMedia ? (
 								<Accordion
 									titleClass={styles.footer__inner_title}
-								  title={'Интернет-магазин'}
+									title={'Интернет-магазин'}
 								>
 									<OnlineStore />
-									<div style={{height:17}}></div>
+									<div style={{ height: 17 }}></div>
 								</Accordion>
 							) : (
 								<>
@@ -49,7 +46,7 @@ const Footer = () => {
 									title={'Компания'}
 								>
 									<CompanyList />
-									<div style={{height:17}}></div>
+									<div style={{ height: 17 }}></div>
 								</Accordion>
 							) : (
 								<>
@@ -134,7 +131,7 @@ const Footer = () => {
 					</div>
 					<div className={styles.footer__bottom_copy}>
 						<p>© «Детали для газовых котлов» {new Date().getFullYear()}</p>
-					</div>					
+					</div>
 				</div>
 			</div>
 		</footer>

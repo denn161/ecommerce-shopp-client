@@ -100,7 +100,6 @@
 			list-style-type: none;
 			border-top: 1px solid #e1e1e1;
 
-
 			&.empty {
 				display: flex;
 				justify-content: center;
@@ -201,14 +200,13 @@
 	}
 
 	&__item {
-		border-bottom: 1px solid #E1E1E1;
+		border-bottom: 1px solid #e1e1e1;
 		margin-top: 10px;
 		&_top {
 			display: flex;
 			gap: 24px;
 			position: relative;
 			margin-bottom: 16px;
-			
 		}
 
 		&_img {
@@ -248,22 +246,19 @@
 			right: 7px;
 			border: none;
 			background: transparent;
-			&.dark{
-				>svg{
-					>path{					
+			&.dark {
+				> svg {
+					> path {
 						stroke: #fff;
-					
 					}
 				}
 			}
-		
 		}
 
 		&_bottom {
 			display: flex;
 			justify-content: space-between;
 			padding: 5px;
-			
 		}
 
 		&_price {
@@ -273,7 +268,7 @@
 			font-size: 18px;
 			line-height: 150.19%;
 			color: #4e4c4c;
-			&.dark{
+			&.dark {
 				color: #fff;
 			}
 		}

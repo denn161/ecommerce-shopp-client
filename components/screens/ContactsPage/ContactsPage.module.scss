@@ -22,12 +22,12 @@ $colorWhite: #f2f2f2;
 		grid-template-columns: 1fr 37%;
 		gap: 109px;
 		@media (max-width: 1170px) {
-      grid-column-gap: 40px;
-    }
+			grid-column-gap: 40px;
+		}
 
-    @media (max-width: 900px) {
-      display: block;
-    }
+		@media (max-width: 900px) {
+			display: block;
+		}
 	}
 
 	&__info {
@@ -35,12 +35,12 @@ $colorWhite: #f2f2f2;
 		padding: 24px 0 24px 24px;
 		box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 		border-radius: 4px;
-	  height: 437px;
-		@media(max-width:769px){
-			 height: auto;
-			 margin-bottom: 40px;
+		height: 437px;
+		@media (max-width: 769px) {
+			height: auto;
+			margin-bottom: 40px;
 		}
-		&.dark{
+		&.dark {
 			background-color: #4e4c4c;
 		}
 
@@ -63,16 +63,16 @@ $colorWhite: #f2f2f2;
 			gap: 16px;
 			margin-bottom: 16px;
 			align-items: center;
-			@media(max-width:768px){
+			@media (max-width: 768px) {
 				flex-direction: column;
 				align-items: flex-start;
 			}
-			&.dark{
-				>span{
-					&:first-child{
+			&.dark {
+				> span {
+					&:first-child {
 						color: #ccc;
 					}
-					&:last-child{
+					&:last-child {
 						color: $colorWhite;
 					}
 				}
@@ -84,20 +84,17 @@ $colorWhite: #f2f2f2;
 				font-size: 18px;
 				line-height: 150.19%;
 				color: #4e4c4c;
-				&:last-child{
+				&:last-child {
 					font-weight: 500;
 					display: flex;
 					align-items: center;
-					>i{
+					> i {
 						font-size: 14px;
 						margin-right: 10px;
 						display: inline-block;
 					}
 				}
 			}
-		
 		}
 	}
-
-	
 }

@@ -1,5 +1,5 @@
 import cl from 'classnames'
-import { Event } from 'effector'
+
 import styles from './CatalogFilters.module.scss'
 import FilterActions from './FilterActions'
 import CatalogFiltersTop from './popup/CatalogFiltersTop'
@@ -7,14 +7,13 @@ import FiltersPopup from './popup/FiltersPopup'
 import ArrowSvg from './svg/ArrowSvg'
 import useFiltersMobile from './useFiltersMobile'
 import PriceRange from '@/components/elements/price-range/PriceRange'
-import { ICatalogFiltersMobile} from '@/types/catalog'
 import {
-	setBoilersManufacturers,	
+	setBoilersManufacturers,
 	setPartsManufacturers,
 	updateBoilerManufacturer,
 	updatePartsManufacturer,
 } from '@/context/boiler-parts'
-
+import { ICatalogFiltersMobile } from '@/types/catalog'
 
 const CatalogFiltersMobile = ({
 	priceRange,
@@ -73,8 +72,8 @@ const CatalogFiltersMobile = ({
 				<div className={styles.filters__mobile_boilers}>
 					<button
 						onClick={handleOpenBoilerPopup}
-						className={cl(styles.filters__mobile_boilers_btn,{
-							[styles.dark]:mode==='dark'
+						className={cl(styles.filters__mobile_boilers_btn, {
+							[styles.dark]: mode === 'dark',
 						})}
 					>
 						Производители котлов
@@ -117,9 +116,13 @@ const CatalogFiltersMobile = ({
 					/>
 				</div>
 				<div className={cl(styles.filters__mobile_price)}>
-					<h4 className={cl(styles.filters__mobile_price_title,{
-						[styles.dark]:mode==='dark'
-					})}>Цена</h4>
+					<h4
+						className={cl(styles.filters__mobile_price_title, {
+							[styles.dark]: mode === 'dark',
+						})}
+					>
+						Цена
+					</h4>
 					<PriceRange
 						mode={mode}
 						priceRange={priceRange}

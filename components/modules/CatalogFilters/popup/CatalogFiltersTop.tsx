@@ -4,7 +4,7 @@ import styles from '../CatalogFilters.module.scss'
 import PopupArrowSvg from '../svg/PopupArrowSvg'
 
 interface IPopup {
-	title: string |false
+	title: string | false
 	btnText: string
 	resetFilters: VoidFunction
 	isDisabled: boolean
@@ -21,21 +21,26 @@ const CatalogFiltersTop = ({
 	mode,
 }: IPopup) => {
 	return (
-		<div className={cl(styles.filters__mobile_top,{
-			[styles.dark]:mode==='dark'
-		})}>
+		<div
+			className={cl(styles.filters__mobile_top, {
+				[styles.dark]: mode === 'dark',
+			})}
+		>
 			<button
 				onClick={closePopup}
-				className={cl(styles.filters__mobile_top_closebtn,{
-					[styles.dark]:mode==='dark'
+				className={cl(styles.filters__mobile_top_closebtn, {
+					[styles.dark]: mode === 'dark',
 				})}
 			>
 				<PopupArrowSvg />
 			</button>
-			<h4 
-			className={cl(styles.filters__mobile_top_title,{
-				[styles.dark]:mode==='dark'
-			})}>{title}</h4>
+			<h4
+				className={cl(styles.filters__mobile_top_title, {
+					[styles.dark]: mode === 'dark',
+				})}
+			>
+				{title}
+			</h4>
 			<button
 				className={cl(styles.filters__mobile_top_resetbtn)}
 				onClick={resetFilters}

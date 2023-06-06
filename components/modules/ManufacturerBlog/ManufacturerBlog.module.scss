@@ -41,10 +41,10 @@
 		justify-content: space-between;
 		width: 100%;
 		padding: 16px;
-	 @media(max-width:520px){
-		justify-content: flex-start;
-		gap: 20px;
-	 }
+		@media (max-width: 520px) {
+			justify-content: flex-start;
+			gap: 20px;
+		}
 	}
 
 	&__btn {
@@ -84,7 +84,5 @@
 		display: flex;
 		gap: 9px;
 		align-items: center;
-	
-	
 	}
 }

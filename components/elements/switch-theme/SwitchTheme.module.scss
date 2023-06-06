@@ -5,15 +5,14 @@ $bgInput: #383838;
 	justify-content: flex-end;
 
 	@media (max-width: 950px) {
-    position: absolute;
-    top: 12px;
-    right: 200px;
-  }
+		position: absolute;
+		top: 12px;
+		right: 200px;
+	}
 
-  @media (max-width: 580px) {
-    top: 16px;
-		
-  }
+	@media (max-width: 580px) {
+		top: 16px;
+	}
 
 	&__input {
 		position: relative;

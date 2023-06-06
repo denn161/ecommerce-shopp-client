@@ -4,11 +4,9 @@ import { useState } from 'react'
 import {
 	$boillerManufacturers,
 	$partsManufacturers,
-	
 } from '@/context/boiler-parts'
 
 const useFiltersMobile = () => {
-
 	const [openBoilers, setOpenBoilers] = useState(false)
 	const [openParts, setOpenParts] = useState(false)
 
@@ -33,7 +31,7 @@ const useFiltersMobile = () => {
 		isBoilerChecked,
 		isPartsChecked,
 		boilerManufacturers,
-		partsManufacturer
+		partsManufacturer,
 	}
 }
 

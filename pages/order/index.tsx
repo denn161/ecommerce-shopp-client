@@ -1,17 +1,15 @@
 import Head from 'next/head'
+import { useCallback } from 'react'
 
 import Layout from '@/components/layout/layout'
-import DashBoardPage from '@/components/screens/DashBoard/DashBoardPage'
-import { useProtectedRoute } from '@/hooks/useProtectedRoute'
-import { Order } from '@/components/screens/Order'
-import { useCallback } from 'react'
 import Breadcrumbs from '@/components/modules/BradCrumbs/BradCrumbs'
+import { Order } from '@/components/screens/Order'
+import { useProtectedRoute } from '@/hooks/useProtectedRoute'
 
 function OrderPage() {
-
-	const { isShowPage } = useProtectedRoute() 
+	const { isShowPage } = useProtectedRoute()
 	const getDefaultTextGenerator = useCallback(() => 'Оформление заказа', [])
-  const getTextGenerator = useCallback((param: string) => ({}[param]), [])
+	const getTextGenerator = useCallback((param: string) => ({}[param]), [])
 
 	return (
 		<>
@@ -26,12 +24,12 @@ function OrderPage() {
 			{isShowPage && (
 				<Layout>
 					<main>
-					<Breadcrumbs
-            getDefaultTextGenerator={getDefaultTextGenerator}
-            getTextGenerator={getTextGenerator}
-      />
+						<Breadcrumbs
+							getDefaultTextGenerator={getDefaultTextGenerator}
+							getTextGenerator={getTextGenerator}
+						/>
 						<div className="overlay"></div>
-				    <Order/>
+						<Order />
 					</main>
 				</Layout>
 			)}

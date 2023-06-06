@@ -1,9 +1,12 @@
-import { IOption } from '@/types/common'
-import { GroupBase, NoticeProps,components } from 'react-select'
+import { GroupBase, NoticeProps, components } from 'react-select'
+
 import Spinner from '../spinner/Spinner'
 
+import { IOption } from '@/types/common'
 
-export const NoOptionsMessage = (props:NoticeProps<IOption,boolean,GroupBase<IOption>>) => {
+export const NoOptionsMessage = (
+	props: NoticeProps<IOption, boolean, GroupBase<IOption>>
+) => {
 	return (
 		<components.NoOptionsMessage {...props}>
 			<span>Ничего не найдено</span>
@@ -11,13 +14,12 @@ export const NoOptionsMessage = (props:NoticeProps<IOption,boolean,GroupBase<IOp
 	)
 }
 
-export const NoOptionsSpinner =(props:NoticeProps<IOption,boolean,GroupBase<IOption>>)=>{     
-   return (
+export const NoOptionsSpinner = (
+	props: NoticeProps<IOption, boolean, GroupBase<IOption>>
+) => {
+	return (
 		<components.NoOptionsMessage {...props}>
-		  <Spinner/>
+			<Spinner />
 		</components.NoOptionsMessage>
-	 )
-
-
+	)
 }
-

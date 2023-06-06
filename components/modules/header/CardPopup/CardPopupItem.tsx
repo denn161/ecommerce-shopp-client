@@ -1,15 +1,13 @@
 import cl from 'classnames'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
 
 import CloseSvg from '../../Alert/svg/CloseSvg'
 
 import styles from './CardPopup.module.scss'
-import { IShoppingCard } from '@/types/shopping-card'
-import { formatPrice } from '@/utils/common'
-import { removeItemFromCart, updateTotalPriceCartItem } from '@/utils/shopping-cart'
 import Counter from '@/components/elements/counter/Counter'
 import { usePrice } from '@/hooks/usePrice'
+import { IShoppingCard } from '@/types/shopping-card'
+import { formatPrice } from '@/utils/common'
 
 interface ICardPopupItem {
 	item: IShoppingCard
@@ -17,9 +15,9 @@ interface ICardPopupItem {
 }
 
 const CardPopupItem = ({ item, mode }: ICardPopupItem) => {
+	const { loading, decrementPrice, deleteProduct, incrementPrice, price } =
+		usePrice(item)
 
-	   const {loading,decrementPrice,deleteProduct,incrementPrice,price} =usePrice(item)
-	
 	return (
 		<li
 			className={cl(styles.card__item, {
@@ -39,9 +37,12 @@ const CardPopupItem = ({ item, mode }: ICardPopupItem) => {
 					{item.name.replace('.', '')}, {item.boiler_manufacturer},{' '}
 					{item.parts_manufacturer}
 				</Link>
-				<button onClick={deleteProduct} className={cl(styles.card__item_close,{
-					[styles.dark]:mode==='dark'
-				})}>
+				<button
+					onClick={deleteProduct}
+					className={cl(styles.card__item_close, {
+						[styles.dark]: mode === 'dark',
+					})}
+				>
 					{loading ? (
 						<div className={`spinner-border ${mode}`} role="status">
 							<span className="visually-hidden">Loading...</span>
@@ -62,7 +63,14 @@ const CardPopupItem = ({ item, mode }: ICardPopupItem) => {
 					</span>
 				) : (
 					<div className={cl(styles.card__item_counter)}>
-					   <Counter mode={mode} totalCount={item.in_stock} initialCount={item.count} decrementPrice={decrementPrice} incrementPrice={incrementPrice} partId={item.partId}/>
+						<Counter
+							mode={mode}
+							totalCount={item.in_stock}
+							initialCount={item.count}
+							decrementPrice={decrementPrice}
+							incrementPrice={incrementPrice}
+							partId={item.partId}
+						/>
 					</div>
 				)}
 				<span

@@ -1,9 +1,3 @@
-
-export const useOrder = ()=>{
- 
- 
-
-
+export const useOrder = () => {
 	return {}
-
 }

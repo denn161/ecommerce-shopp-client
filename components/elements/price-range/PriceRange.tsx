@@ -1,5 +1,4 @@
 import cl from 'classnames'
-import { Dispatch, SetStateAction, useState } from 'react'
 import { Range, getTrackBackground } from 'react-range'
 
 import styles from './PriceRange.module.scss'
@@ -7,7 +6,7 @@ import styles from './PriceRange.module.scss'
 interface IPriceRange {
 	mode: string
 	priceRange: number[]
-	setPriceRange: (arg:number[])=>void
+	setPriceRange: (arg: number[]) => void
 	setIsPriceRange: (arg: boolean) => void
 }
 
@@ -20,27 +19,30 @@ const PriceRange = ({
 	priceRange,
 	setPriceRange,
 	setIsPriceRange,
-}: IPriceRange) => {   
-  
+}: IPriceRange) => {
 	const handlePriceChange = (values: number[]) => {
 		setIsPriceRange(true)
 		setPriceRange(values)
 	}
 	return (
 		<div className={cl(styles.filters__price)}>
-			<div className={cl(styles.filters__price_inputs,{
-				[styles.dark]:mode==='dark'
-			})}>
-				<input type="text"
-				 value={Math.ceil(priceRange[0])} 
-			   placeholder={'от 00 00'}
-				 readOnly			
+			<div
+				className={cl(styles.filters__price_inputs, {
+					[styles.dark]: mode === 'dark',
+				})}
+			>
+				<input
+					type="text"
+					value={Math.ceil(priceRange[0])}
+					placeholder={'от 00 00'}
+					readOnly
 				/>
 				<span></span>
-				<input type="text"
-				 value={Math.ceil(priceRange[1])}
-				 placeholder="до 10 000"
-				 readOnly			
+				<input
+					type="text"
+					value={Math.ceil(priceRange[1])}
+					placeholder="до 10 000"
+					readOnly
 				/>
 			</div>
 
@@ -51,7 +53,7 @@ const PriceRange = ({
 				max={MAX}
 				onChange={handlePriceChange}
 				renderTrack={({ props, children }) => (
-					<div					
+					<div
 						onMouseDown={props.onMouseDown}
 						onTouchStart={props.onTouchStart}
 						style={{

@@ -1,19 +1,16 @@
 import Footer from '../modules/footer/Footer'
 import Header from '../modules/header/Header'
 
-
-interface ILayoutProps{
-	 children:React.ReactNode
+interface ILayoutProps {
+	children: React.ReactNode
 }
 
- const Layout=({children}:ILayoutProps)=>(   
-	 <>
-	  <Header/>
-	{	children}
-	<Footer/>
-	 </>
-
-
+const Layout = ({ children }: ILayoutProps) => (
+	<>
+		<Header />
+		{children}
+		<Footer />
+	</>
 )
 
-export default Layout;
+export default Layout

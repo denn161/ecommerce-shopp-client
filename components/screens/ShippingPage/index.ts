@@ -1,2 +1,1 @@
-export * from './ShippingPage';
-
+export * from './ShippingPage'

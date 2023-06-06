@@ -9,7 +9,6 @@ import { Alert } from '@/components/modules/Alert'
 import BrandsSlider from '@/components/modules/slider/BrandsSlider'
 import DashBoardSlider from '@/components/modules/slider/DashBoardSlider'
 import { $mode } from '@/context/mode'
-import { useCallback } from 'react'
 
 const DashBoardPage = () => {
 	const {
@@ -20,10 +19,9 @@ const DashBoardPage = () => {
 		handleCloseAlert,
 		shoppingCart,
 		totalPrice,
-		countProductInCart
+		countProductInCart,
 	} = useDashboard()
-	const mode = useStore($mode) 
-
+	const mode = useStore($mode)
 
 	return (
 		<section className={styles.dashboard}>
@@ -37,7 +35,7 @@ const DashBoardPage = () => {
 							className={styles.dashboard__alert}
 						>
 							<Alert
-							totalPrice={totalPrice}
+								totalPrice={totalPrice}
 								mode={mode}
 								closeAlert={handleCloseAlert}
 								count={countProductInCart}

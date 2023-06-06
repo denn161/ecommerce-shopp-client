@@ -1,24 +1,21 @@
-import { $mode } from '@/context/mode'
 import { useStore } from 'effector-react'
 
- interface ISpinner{
-	isHeader?:boolean
- }
+import { $mode } from '@/context/mode'
 
-const Spinner = ({isHeader}:ISpinner) => {
+interface ISpinner {
+	isHeader?: boolean
+}
 
- const theme=useStore($mode)
-     
-	const modeClass = theme==='dark'||isHeader?'text-light':'text-dark'
-   
-	
-		return (
-			<div className={`spinner-border ${modeClass}`} role="status">
+const Spinner = ({ isHeader }: ISpinner) => {
+	const theme = useStore($mode)
+
+	const modeClass = theme === 'dark' || isHeader ? 'text-light' : 'text-dark'
+
+	return (
+		<div className={`spinner-border ${modeClass}`} role="status">
 			<span className="visually-hidden">Loading...</span>
-		</div>		
-
-		) 
-
+		</div>
+	)
 }
 
 export default Spinner

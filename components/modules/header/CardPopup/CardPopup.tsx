@@ -1,9 +1,7 @@
 import cl from 'classnames'
-
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
-import React, { forwardRef } from 'react'
-
+import { forwardRef } from 'react'
 
 import CardPopupSvg from '../svg/CardPopupSvg'
 import CardSvg from '../svg/CardSvg'
@@ -16,9 +14,9 @@ import { formatPrice } from '@/utils/common'
 import { witchClickAutside } from '@/utils/witchClickOutside'
 
 const CardPopup = forwardRef<HTMLDivElement, IComponentProfile>(
-	({ open, setOpen }, ref) => {	
-     const {totalPrice,cards,mode,} =useCardPopup()
-		const toggleCardDropDown = () => setOpen(!open)		
+	({ open, setOpen }, ref) => {
+		const { totalPrice, cards, mode } = useCardPopup()
+		const toggleCardDropDown = () => setOpen(!open)
 
 		return (
 			<div

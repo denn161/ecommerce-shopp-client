@@ -3,7 +3,6 @@
 import cl from 'classnames'
 import { useStore } from 'effector-react'
 import { AnimatePresence, motion } from 'framer-motion'
-import * as React from 'react'
 
 import styles from './Accordion.module.scss'
 import { useAccardion } from './useAccordion'

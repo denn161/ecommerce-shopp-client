@@ -1,17 +1,16 @@
 import Head from 'next/head'
 
 import Layout from '@/components/layout/layout'
+import Breadcrumbs from '@/components/modules/BradCrumbs/BradCrumbs'
 import DashBoardPage from '@/components/screens/DashBoard/DashBoardPage'
 import { useProtectedRoute } from '@/hooks/useProtectedRoute'
-import Breadcrumbs from '@/components/modules/BradCrumbs/BradCrumbs'
 
 function DashboardPage() {
-	const { isShowPage } = useProtectedRoute() 
+	const { isShowPage } = useProtectedRoute()
 
-	const getDefaultTextGenerator = ()=>''
+	const getDefaultTextGenerator = () => ''
 
- 
-  const getTextGenerator = ()=>''
+	const getTextGenerator = () => ''
 	return (
 		<>
 			<Head>
@@ -25,10 +24,10 @@ function DashboardPage() {
 			{isShowPage && (
 				<Layout>
 					<main>
-					<Breadcrumbs
-            getDefaultTextGenerator={getDefaultTextGenerator}
-            getTextGenerator={getTextGenerator}
-      />
+						<Breadcrumbs
+							getDefaultTextGenerator={getDefaultTextGenerator}
+							getTextGenerator={getTextGenerator}
+						/>
 						<div className="overlay"></div>
 						<DashBoardPage />
 					</main>

@@ -1,13 +1,7 @@
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 
-export const useCatalogFilters = ()=>{
- 
- const [loading,setLoading] =useState(false)
-  
+export const useCatalogFilters = () => {
+	const [loading, setLoading] = useState(false)
 
- 
- 
-
-	return {loading}
-
+	return { loading }
 }

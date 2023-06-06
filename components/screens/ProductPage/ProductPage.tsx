@@ -108,9 +108,13 @@ export const ProductPage = ({}: IProductPageProps) => {
 					</div>
 				)}
 				<div className={styles.product__bottom}>
-					<h2 className={cl(styles.product__bottom_title,{
-						[styles.dark]:mode==='dark'
-					})}>Вам понравится</h2>
+					<h2
+						className={cl(styles.product__bottom_title, {
+							[styles.dark]: mode === 'dark',
+						})}
+					>
+						Вам понравится
+					</h2>
 					{!!parts.rows?.length && (
 						<DashBoardSlider
 							items={parts.rows}
