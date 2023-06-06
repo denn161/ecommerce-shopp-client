@@ -1,7 +1,7 @@
 import cl from 'classnames'
 import { useStore } from 'effector-react'
 import Link from 'next/link'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import styles from './BreadCrumbs.module.scss'
 import CrumbArrowSvg from './svg/CrumbArrowSvg'
@@ -23,12 +23,12 @@ function Crumb({
 	const [text, setText] = useState(defaultText)
 	const mode = useStore($mode)
 
-	const textGen = useCallback(async () => {
+	const textGen = async () => {
 		if (!Boolean(textGenerator)) return
 
 		const finalText = await textGenerator()
 		setText(finalText)
-	}, [textGenerator])
+	}
 
 	useEffect(() => {
 		textGen()

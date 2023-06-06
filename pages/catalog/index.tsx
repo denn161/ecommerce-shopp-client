@@ -1,18 +1,18 @@
 import Head from 'next/head'
+import { useCallback } from 'react'
 
 import Layout from '@/components/layout/layout'
+import Breadcrumbs from '@/components/modules/BradCrumbs/BradCrumbs'
 import { CatalogPage } from '@/components/screens/CatalogPage'
 import { useProtectedRoute } from '@/hooks/useProtectedRoute'
 import { IQueryParams } from '@/types/catalog'
-import Breadcrumbs from '@/components/modules/BradCrumbs/BradCrumbs'
-import { useCallback } from 'react'
 
 function Catalog({ query }: { query: IQueryParams }) {
 	const { isShowPage } = useProtectedRoute()
-	const getDefaultTextGenerator = useCallback(()=>'Каталог',[])
- 
-  const getTextGenerator =useCallback((param:string)=>({}[param]),[])
-	
+	const getDefaultTextGenerator = useCallback(() => 'Каталог', [])
+
+	const getTextGenerator = useCallback((param: string) => ({}[param]), [])
+
 	return (
 		<>
 			<Head>
@@ -26,10 +26,10 @@ function Catalog({ query }: { query: IQueryParams }) {
 			{isShowPage && (
 				<Layout>
 					<main>
-					<Breadcrumbs
-            getDefaultTextGenerator={getDefaultTextGenerator}
-            getTextGenerator={getTextGenerator}
-      />
+						<Breadcrumbs
+							getDefaultTextGenerator={getDefaultTextGenerator}
+							getTextGenerator={getTextGenerator}
+						/>
 						<div className="overlay"></div>
 						<CatalogPage query={query} />
 					</main>

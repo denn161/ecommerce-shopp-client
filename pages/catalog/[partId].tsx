@@ -50,7 +50,7 @@ const Product = ({ query }: { query: IQueryParams }) => {
 
 	useEffect(() => {
 		loadBoilerPart()
-	}, [router.asPath])
+	}, [router.asPath,loadBoilerPart])
 
 	return (
 		<>
